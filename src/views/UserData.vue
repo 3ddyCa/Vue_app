@@ -16,7 +16,7 @@
         <div class="flex-1">
             <figure><img class=" flex-center w-100 m-auto" :src="avatar" alt="avatar"></figure>
             <label class="font-mono text-4xl" for="name">{{ userName }}</label>
-            <input class="m-5 shadow-md m-auto" id="name" type="text" :value="userName">
+            <input class="shadow-md m-5 p-2 w-64 rounded-box" id="name" type="text" :value="userName">
         </div>
         <div>
             <ul class="list shadow-md">
