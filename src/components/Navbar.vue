@@ -7,14 +7,15 @@ import { ref } from 'vue'
     <div class="flex-1">
         <RouterLink class="btn btn-ghost text-xl" to='/home'>/////M///O///N///////S///I///T///E/////</RouterLink>
     </div>
-    <div class="flex-none dropdown">
+    <div class="flex-none dropdown dropdown-end">
         <button tabindex="0" class="btn btn-square btn-ghost" role="button">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
         </button>
-        <ul tabindex="-1" class="dropdown-content menu w-52  z-1 bg-base-100 p-2 shadow-sm bg-base-100 rounded-box z-1 w-52 p-2">
+        <ul tabindex="-1" class="dropdown-content  menu bg-base-100 p-2 shadow-sm bg-base-100 rounded-box">
             <li><RouterLink to="/">Accueil</RouterLink></li>
             <li><RouterLink to="/contact">Contact</RouterLink></li>
             <li><RouterLink to="/about">A propos</RouterLink></li>
+            <li><RouterLink to="/utilisateur">Exercice2</RouterLink></li>
         </ul>
     </div>
     </div>
