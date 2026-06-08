@@ -1,6 +1,8 @@
-<script lang="ts">
+<script setup lang="ts">
 import Affichage from '../components/Affichage.vue';
 import AutreNom from '../components/AutreNom.vue';
+
+
 </script>
 
 <template>

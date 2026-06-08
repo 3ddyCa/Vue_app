@@ -16,6 +16,7 @@ import { ref } from 'vue'
             <li><RouterLink to="/contact">Contact</RouterLink></li>
             <li><RouterLink to="/about">A propos</RouterLink></li>
             <li><RouterLink to="/utilisateur">Exercice2</RouterLink></li>
+            <li><RouterLink to="/plusMoins">Exercice3</RouterLink></li>
         </ul>
     </div>
     </div>

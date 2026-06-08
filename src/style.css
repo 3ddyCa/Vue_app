@@ -1,7 +1,2 @@
 @import "tailwindcss";
 @plugin "daisyui";
-
-
-*{
-    transition: all 300ms ease-in-out;
-}

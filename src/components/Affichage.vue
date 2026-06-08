@@ -6,6 +6,8 @@
     const getStatus = ()=>{
         return (isOnline ? "online": "away");
     }
+
+    
     const test = ()=>{
         return 'hello world';
     }
@@ -19,6 +21,11 @@
     let unTableau = ref(["du texte", 99]);
     let unObjet = ref({"name":"COOL","tel":"060503030"});
     let ternaire = ref(getStatus());
+
+    const chgStatus = ()=>{
+       isOnline = !isOnline;
+       ternaire.value = getStatus();
+    }
 
     
 
@@ -44,7 +51,7 @@
             </ul>
         </div>
         
-        <button class="btn btn-primary" v-on:click=" () => { isOnline = !isOnline }">Click me !</button>
+        <button class="btn btn-primary" @click="chgStatus">Click me !</button>
     </section>
 </template>
 
