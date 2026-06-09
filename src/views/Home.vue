@@ -12,7 +12,6 @@ import AutreNom from '../components/AutreNom.vue';
         <section class="flex-1 w-full rounded-box bg-base-100 shadow-md">
             <h3>Exercice actuel : </h3>
             <Affichage />
-            <AutreNom />
         </section>
         
     </main>

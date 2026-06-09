@@ -8,7 +8,8 @@ const router = createRouter({
         {path : '/contact', name:'contact', component : () => import('../views/Contact.vue')},
         {path : '/autreNom', name:'autreNom', component : () => import('../components/Affichage.vue')},
         {path : '/utilisateur', name:'utilisateur', component : () => import('../views/UserData.vue')},
-        {path : '/plusMoins', name:'plusMoins', component : () => import('../views/PlusMoins.vue')}
+        {path : '/plusMoins', name:'plusMoins', component : () => import('../views/PlusMoins.vue')},
+        {path : '/catcher', name:'catcher', component : () => import('../views/Catcher.vue')}
     ],
 })
 

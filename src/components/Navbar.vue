@@ -5,7 +5,7 @@ import { ref } from 'vue'
 <template setup>
     <div class="navbar bg-base-500 shadow-sm">
     <div class="flex-1">
-        <RouterLink class="btn btn-ghost text-xl" to='/home'>/////M///O///N///////S///I///T///E/////</RouterLink>
+        <RouterLink class="btn btn-ghost text-3xl p-10 rounded-box bg-orange-100" to='/home'>CDA - Eddy Carbet</RouterLink>
     </div>
     <div class="flex-none dropdown dropdown-end">
         <button tabindex="0" class="btn btn-square btn-ghost" role="button">
@@ -17,6 +17,7 @@ import { ref } from 'vue'
             <li><RouterLink to="/about">A propos</RouterLink></li>
             <li><RouterLink to="/utilisateur">Exercice2</RouterLink></li>
             <li><RouterLink to="/plusMoins">Exercice3</RouterLink></li>
+            <li><RouterLink to="/catcher">catcher</RouterLink></li>
         </ul>
     </div>
     </div>
