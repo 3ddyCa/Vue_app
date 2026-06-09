@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 let display = ref(0);
-const textGenerator = () => { display.value = (Math.random() > 0.5 ? 'C\'est plus' : 'C\'est moins') };
+const textGenerator = () => { (display.value = (Math.random()) > 0.5 ? 'C\'est plus' : 'C\'est moins') };
 const sub = ()=>{
     display.value--;
 }
