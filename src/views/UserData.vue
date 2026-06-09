@@ -3,7 +3,7 @@
     let avatar = 'https://images-ext-1.discordapp.net/external/KtvtHjBVWCc-5IJxYF4a-8YkN0nDJ868SE57zyzX9qM/https/s3.amazonaws.com/medium.cosplay.com/77883/2111288.jpg?format=webp';
     let userName = 'Dr.Mario';
     let age = 32;
-    const displayAge = (age:integer=1,plus:integer=0) => {
+    const displayAge = (age:number=1,plus:number=0) => {
         return age+plus+' ans';
     }
     const nbFtich = ()=>{
