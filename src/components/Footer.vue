@@ -22,26 +22,14 @@ import { ref } from 'vue'
       Providing reliable tech since 1992
     </p>
   </aside>
-  <nav>
-    <h6 class="footer-title">Services</h6>
-    <a class="link link-hover">Branding</a>
-    <a class="link link-hover">Design</a>
-    <a class="link link-hover">Marketing</a>
-    <a class="link link-hover">Advertisement</a>
+  <nav class="glass rounded-box flex m-auto gap-10 p-20 b-0">
+    <h6 class="footer-title">Mes contacts</h6>
+    <a class="link link-hover" href="https://eddycarbet.com">Portfolio</a>
+    <a class="link link-hover" href="https://github.com/3ddyCa/">Github</a>
+    <a class="link link-hover" href="https://linkedin.com/in/EddyCarbet/">Linkedin</a>
+
   </nav>
-  <nav>
-    <h6 class="footer-title">Company</h6>
-    <a class="link link-hover">About us</a>
-    <a class="link link-hover">Contact</a>
-    <a class="link link-hover">Jobs</a>
-    <a class="link link-hover">Press kit</a>
-  </nav>
-  <nav>
-    <h6 class="footer-title">Legal</h6>
-    <a class="link link-hover">Terms of use</a>
-    <a class="link link-hover">Privacy policy</a>
-    <a class="link link-hover">Cookie policy</a>
-  </nav>
+
 </footer>
 </template>
 
