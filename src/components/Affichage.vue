@@ -35,9 +35,9 @@
 <template>
     <section class="bg-base-100 p-4 w-75">
         
-        <div class=" dropdown dropdown-center m-5">
+        <div class=" dropdown dropdown-start m-5">
             <summary class="btn" role="button">{{ dp_btt }}</summary>
-            <ul class="menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+            <ul class="menu dropdown-content bg-base-100 rounded-box h-fit w-52 p-2 shadow-sm">
                 <li>{{ unLivre }}</li>
                 <li>{{ unNombre }}</li>
                 <li>{{ unTableau }}</li>
@@ -45,13 +45,12 @@
                 <li>{{ unObjet }}</li>
                 <li>{{ unObjet.name }}</li>
                 <li>{{ unObjet.tel }}</li>
-                <li><div v-if="isOnline" class="bg-accent rounded-box z-1 w-52 p-2 shadow-sm" >{{ ternaire}}</div><div v-else class="bg-orange-600 rounded-box z-1 w-52 p-2 shadow-sm" >{{ ternaire}}</div></li>
+                <li><div v-if="isOnline" class="bg-accent rounded-box z-1 w-52 p-2 shadow-sm" @click="chgStatus">{{ ternaire}}</div><div v-else class="bg-orange-600 rounded-box z-1 w-52 p-2 shadow-sm" @click="chgStatus">{{ ternaire}}</div></li>
                 <li>{{ test()}}</li>
                 <li><h1>Du HTML</h1></li>
             </ul>
         </div>
         
-        <button class="btn btn-primary" @click="chgStatus">Click me !</button>
     </section>
 </template>
 
