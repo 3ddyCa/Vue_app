@@ -4,6 +4,18 @@
     let number:any = [];
     number[0] = ref(0);
     number[1] = ref(0);
+    let selectCarde:any = [];
+    selectCarde[0] = ref(false);
+    selectCarde[1] = ref(false);
+    selectCarde[2] = ref(false);
+    selectCarde[3] = ref(false);
+    let selectCard:any = [];
+    let uneCard = ref(0);
+    let version = ref(false);
+    selectCard[0] = ref(false);
+    selectCard[1] = ref(false);
+    selectCard[2] = ref(false);
+    selectCard[3] = ref(false);
     let isSet = false;
     let isWin = ref(false);
 
@@ -17,6 +29,26 @@
     const chgCounter = (index:number , $type:boolean, amount:number=1)=>{
         ($type ? number[index].value = number[index].value+amount : number[index].value = number[index].value-amount);
         
+    }
+    const chgBtt = (index:number)=>{
+        selectCard[index].value = !selectCard[index].value;
+        console.log('selectCard '+index+' is '+selectCard[index].value)
+        console.log('uneCard '+index+(selectCard[index].value?' selectionnée ':' déselectionnée'))
+        
+    }
+
+    const selectionCard = (index:number)=>{
+        selectCarde.forEach(element=>{
+            element.value=false;
+        })
+        if(selectCarde[index].value){
+            selectCarde[index].value = false;
+        }else{
+            selectCarde[index].value = true;
+        }
+        uneCard.value = index;
+        //console.log('selectCarde '+index+' is '+selectCarde[index].value)
+        console.log('uneCard '+index+(selectCarde[index].value?' selectionnée ':' déselectionnée'))
     }
 
     watch(number[0], (val)=>{
@@ -61,13 +93,13 @@
             <div class="flex m-2 gap-5 p-5 m-auto">
                 <button class="btn btn-accent" @click="chgCounter(0,false,10)">--</button>
                 <button class="btn btn-primary" @click="chgCounter(0,false)">-</button>
-                <strong class="m-auto rounded-box p-2 px-4 shadow-md bg-orange-50" :style="{fontSize : number[0]+1+'px'}"> {{ number[0] }} </strong>
+                <strong class="m-auto rounded-box p-2 px-4 shadow-md bg-orange-50"> {{ number[0] }} </strong>
                 <button class="btn btn-accent" @click="chgCounter(0,true)">+</button>
                 <button class="btn btn-accent" @click="chgCounter(0,true,10)">++</button>
             </div>
         </section>
 
-        <section class="h-72 w-full">
+        <section class="h-30 w-full">
             <div class="dropdown dropdown-start m-5 flex-none w-50 m-auto">
                 <summary class="p-2 btn btn-primary" tabindex="0">Nombre mystère</summary>
                 <article tabindex="-1" class="menu dropdown-content m-2 gap-5 p-5 w-full m-auto bg-base-100">
@@ -83,6 +115,31 @@
                         <button class="btn btn-secondary" @click="chgCounter(1,true,5)">+5</button>
                     </section>
 
+                </article>
+            </div>
+        </section>
+        <section class="h-30 w-full">
+            <div class="dropdown dropdown-start m-5 flex-none w-50 m-auto">
+                <summary class="p-2 btn btn-primary" tabindex="0">SelectCard</summary>
+                <button class="btn btn-secondary" @click="version = !version">version</button>
+                <article v-if="version" tabindex="-1" class="menu dropdown-content m-2 gap-5 p-5 w-full m-auto bg-base-100">
+                    <button  class="w-fit h-fit" @click="chgBtt(0)"><h3 v-if="selectCard[0].value" class="btn btn-accent">Click me !</h3 ><h3 v-else class="btn btn-warning">Click me !</h3 ></button>
+                    <button  class="w-fit h-fit" @click="chgBtt(1)"><h3 v-if="selectCard[1].value" class="btn btn-accent">Click me !</h3 ><h3 v-else class="btn btn-warning">Click me !</h3 ></button>
+                    <button  class="w-fit h-fit" @click="chgBtt(2)"><h3 v-if="selectCard[2].value" class="btn btn-accent">Click me !</h3 ><h3 v-else class="btn btn-warning">Click me !</h3 ></button>
+                    <button  class="w-fit h-fit" @click="chgBtt(3)"><h3 v-if="selectCard[3].value" class="btn btn-accent">Click me !</h3 ><h3 v-else class="btn btn-warning">Click me !</h3 ></button>
+                </article>
+                <article v-else tabindex="-1" class="menu dropdown-content m-2 gap-5 p-5 w-full m-auto bg-base-100">
+                    <div>
+                        <button  class="w-fit h-fit btn p-2 rounded-box" @click="selectionCard(0)"  :style="{backgroundColor : (selectCarde[0].value ? 'blue' : 'red')}">Click me !</button>
+                        <button  class="w-fit h-fit btn p-2 rounded-box" @click="selectionCard(1)"  :style="{backgroundColor : (selectCarde[1].value ? 'green' : 'violet')}">Click me !</button>
+                        <button  class="w-fit h-fit btn p-2 rounded-box" @click="selectionCard(2)"  :style="{backgroundColor : (selectCarde[2].value ? 'chartreuse' : 'tomato')}">Click me !</button>
+                        <button  class="w-fit h-fit btn p-2 rounded-box" @click="selectionCard(3)"  :style="{backgroundColor : (selectCarde[3].value ? 'lightblue' : 'cyan')}">Click me !</button>
+                    </div>
+                    <div>
+
+                    </div>
+                    
+                    
                 </article>
             </div>
         </section>
