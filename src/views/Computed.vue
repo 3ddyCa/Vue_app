@@ -9,9 +9,13 @@
     selectCarde[1] = ref(false);
     selectCarde[2] = ref(false);
     selectCarde[3] = ref(false);
+    selectCarde[4] = ref(false);
+    selectCarde[5] = ref(false);
+    selectCarde[6] = ref(false);
+    selectCarde[7] = ref(false);
     let selectCard:any = [];
     let uneCard = ref(0);
-    let version = ref(false);
+    let version = ref(0);
     selectCard[0] = ref(false);
     selectCard[1] = ref(false);
     selectCard[2] = ref(false);
@@ -49,6 +53,10 @@
         uneCard.value = index;
         //console.log('selectCarde '+index+' is '+selectCarde[index].value)
         console.log('uneCard '+index+(selectCarde[index].value?' selectionnée ':' déselectionnée'))
+    }
+
+    const getState = (index:number)=>{
+        return [selectCarde[index].value, (selectCarde[index].value?false:true) ]
     }
 
     watch(number[0], (val)=>{
@@ -121,21 +129,32 @@
         <section class="h-30 w-full">
             <div class="dropdown dropdown-start m-5 gap-2 flex-none w-50 m-auto">
                 <summary class="p-2 btn btn-primary" tabindex="0">SelectCard</summary>
-                <button class="btn btn-secondary" @click="version = !version">version</button>
-                <article v-if="version" tabindex="-1" class=" glass rounded-box menu dropdown-content m-2 gap-5 p-5 w-full m-auto bg-base-100">
+                <button class="btn btn-secondary" @click="(version < 2?version++:version = 0)">version {{ version }}</button>
+                <article v-if="version == 0" tabindex="-1" class=" glass rounded-box menu dropdown-content m-2 gap-5 p-5 w-full m-auto bg-base-100">
+                    <p>Version avec un v-if :</p>
                     <button  class="w-fit h-fit" @click="chgBtt(0)"><h3 v-if="selectCard[0].value" class="btn btn-accent">Click me !</h3 ><h3 v-else class="btn btn-warning">Click me !</h3 ></button>
                     <button  class="w-fit h-fit" @click="chgBtt(1)"><h3 v-if="selectCard[1].value" class="btn btn-accent">Click me !</h3 ><h3 v-else class="btn btn-warning">Click me !</h3 ></button>
                     <button  class="w-fit h-fit" @click="chgBtt(2)"><h3 v-if="selectCard[2].value" class="btn btn-accent">Click me !</h3 ><h3 v-else class="btn btn-warning">Click me !</h3 ></button>
                     <button  class="w-fit h-fit" @click="chgBtt(3)"><h3 v-if="selectCard[3].value" class="btn btn-accent">Click me !</h3 ><h3 v-else class="btn btn-warning">Click me !</h3 ></button>
                 </article>
-                <article v-else tabindex="-1" class=" glass rounded-box menu dropdown-content m-2 gap-5 p-5 w-full m-auto bg-base-100">
+                <article v-else-if="version == 1" tabindex="-1" class=" glass rounded-box menu dropdown-content m-2 gap-5 p-5 w-full m-auto bg-base-100">
+                    <p>version avec fonction et condition ternaire sur bind de style : </p>
                     <div>
                         <button  class="w-fit h-fit btn p-2 rounded-box" @click="selectionCard(0)"  :style="{backgroundColor : (selectCarde[0].value ? 'blue' : 'red')}">Click me !</button>
                         <button  class="w-fit h-fit btn p-2 rounded-box" @click="selectionCard(1)"  :style="{backgroundColor : (selectCarde[1].value ? 'green' : 'violet')}">Click me !</button>
                         <button  class="w-fit h-fit btn p-2 rounded-box" @click="selectionCard(2)"  :style="{backgroundColor : (selectCarde[2].value ? 'chartreuse' : 'tomato')}">Click me !</button>
                         <button  class="w-fit h-fit btn p-2 rounded-box" @click="selectionCard(3)"  :style="{backgroundColor : (selectCarde[3].value ? 'lightblue' : 'cyan')}">Click me !</button>
-                    </div>                   
+                    </div> 
+                                       
                     
+                </article>
+                <article v-else-if="version == 2" tabindex="-1" class=" glass rounded-box menu dropdown-content m-2 gap-5 p-5 w-full m-auto bg-base-100">
+                    <p>Version avec fonction et bind sur classe</p>
+                        <button  class="w-fit h-fit btn p-2 rounded-box btn " @click="selectionCard(4)"  :class="{'btn-accent' : getState(4)[0] , 'btn-secondary' : getState(4)[1] }">Click me !</button>
+                        <button  class="w-fit h-fit btn p-2 rounded-box btn " @click="selectionCard(5)"  :class="{'btn-accent' : getState(5)[0] , 'btn-secondary' : getState(5)[1] }">Click me !</button>
+                        <button  class="w-fit h-fit btn p-2 rounded-box btn " @click="selectionCard(6)"  :class="{'btn-accent' : getState(6)[0] , 'btn-secondary' : getState(6)[1] }">Click me !</button>
+                        <button  class="w-fit h-fit btn p-2 rounded-box btn " @click="selectionCard(7)"  :class="{'btn-accent' : getState(7)[0] , 'btn-secondary' : getState(7)[1] }">Click me !</button>
+
                 </article>
             </div>
         </section>
