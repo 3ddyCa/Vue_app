@@ -4,6 +4,7 @@
     let number:any = [];
     number[0] = ref(0);
     number[1] = ref(0);
+    let isSet = false;
     let message = ref('essayez encore !');
 
     const affichage = computed(() => {
@@ -12,7 +13,7 @@
     });
 
     const chgCounter = (index:number , $type:boolean, amount:number=1)=>{
-        ($type?number[index].value = number[index].value+amount:number[index].value = number[index].value-amount);
+        ($type ? number[index].value = number[index].value+amount : number[index].value = number[index].value-amount);
         
     }
 
@@ -23,6 +24,10 @@
 
     watch(number[1], (val)=>{
         val==7?message.value ='bravo !!!':message.value ='essayez encore !';
+        if(!isSet){
+            isSet = true;
+            setTimeout(()=>{number[1].value = 0 ; isSet = false; message.value = "Reset"}, 3000)
+        }
     })
 
 </script>
@@ -34,7 +39,7 @@
                 <strong class="m-auto rounded-box p-2 px-4 shadow-md bg-orange-50" > Utilisateur connecté (fonction affichage()) :  {{ userName }} </strong>
             </div>
             <div class="flex m-2 gap-5 p-5 m-auto">
-                <button class="btn btn-primary" @click="chgCounter(0,false,10)">--</button>
+                <button class="btn btn-accent" @click="chgCounter(0,false,10)">--</button>
                 <button class="btn btn-primary" @click="chgCounter(0,false)">-</button>
                 <strong class="m-auto rounded-box p-2 px-4 shadow-md bg-orange-50"> {{ number[0] }} </strong>
                 <button class="btn btn-accent" @click="chgCounter(0,true)">+</button>
@@ -42,19 +47,22 @@
             </div>
         </section>
 
-        <section>
-            <div class="dropdown dropdown-start m-5 flex-none">
-                <summary class="p-5 btn btn-primary" tabindex="0">Nombre mystère</summary>
-                <div tabindex="-1" class="dropdown-content m-2 gap-5 p-5 m-auto bg-base-100">
-                    <strong class="m-4">{{ message }}</strong>
-                    <div class=" flex m-2 gap-5  m-auto bg-base-100">
-                        <button class="btn btn-primary" @click="chgCounter(1,false,10)">--</button>
-                        <button class="btn btn-primary" @click="chgCounter(1,false)">-</button>
-                        <strong class="m-auto rounded-box p-2 px-4 shadow-md bg-orange-50"> {{ number[1] }} </strong>
-                        <button class="btn btn-accent" @click="chgCounter(1,true)">+</button>
-                        <button class="btn btn-accent" @click="chgCounter(1,true,10)">++</button>
-                    </div>
-                </div>
+        <section class="h-72 w-full">
+            <div class="dropdown dropdown-start m-5 flex-none w-50 m-auto">
+                <summary class="p-2 btn btn-primary" tabindex="0">Nombre mystère</summary>
+                <article tabindex="-1" class="menu dropdown-content m-2 gap-5 p-5 w-full m-auto bg-base-100">
+                    <section class=" flex-1 m-2 gap-4  m-auto bg-base-100 shadow-md bg-base-50 p-5 rounded-box">
+                        <p class="m-auto rounded-box bg-base-50 p-2">Le nombre :</p>
+                        <strong class="m-auto rounded-box px-4 shadow-md bg-orange-50 p-2"> {{ number[1] }} </strong>
+                        
+                    </section>
+                    <strong class=" text-2xl c-secondary m-auto">{{ message }}</strong> 
+                    <section class="flex m-2 gap-5 p-5 m-auto">
+                        <button class="btn btn-accent" @click="chgCounter(1,true)">+1</button>
+                        <button class="btn btn-secondary" @click="chgCounter(1,true,5)">+5</button>
+                    </section>
+
+                </article>
             </div>
         </section>
     </main>
