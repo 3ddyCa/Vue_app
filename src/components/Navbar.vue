@@ -15,10 +15,10 @@ import { ref } from 'vue'
             <li><RouterLink to="/">Accueil</RouterLink></li>
             <li><RouterLink to="/contact">Contact</RouterLink></li>
             <li><RouterLink to="/about">A propos</RouterLink></li>
-            <li><RouterLink to="/utilisateur">Exercice2</RouterLink></li>
-            <li><RouterLink to="/plusMoins">Exercice3</RouterLink></li>
-            <li><RouterLink to="/catcher">Exercice4</RouterLink></li>
-            <li><RouterLink to="/computed">Exercice5</RouterLink></li>
+            <li><RouterLink to="/utilisateur">utilisateur</RouterLink></li>
+            <li><RouterLink to="/plusMoins">PlusMoins</RouterLink></li>
+            <li><RouterLink to="/catcher">Evenements</RouterLink></li>
+            <li><RouterLink to="/computed">Computing</RouterLink></li>
         </ul>
     </div>
     </div>
