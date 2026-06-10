@@ -10,7 +10,8 @@ const router = createRouter({
         {path : '/utilisateur', name:'utilisateur', component : () => import('../views/UserData.vue')},
         {path : '/plusMoins', name:'plusMoins', component : () => import('../views/PlusMoins.vue')},
         {path : '/catcher', name:'catcher', component : () => import('../views/Catcher.vue')},
-        {path : '/computed', name:'computed', component : () => import('../views/Computed.vue')}
+        {path : '/computed', name:'computed', component : () => import('../views/Computed.vue')},
+        {path : '/recap', name:'recap', component : () => import('../views/Recap.vue')}
     ],
 })
 
