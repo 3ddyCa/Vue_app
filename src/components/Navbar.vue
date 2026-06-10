@@ -19,6 +19,8 @@ import { ref } from 'vue'
             <li><RouterLink to="/plusMoins">PlusMoins</RouterLink></li>
             <li><RouterLink to="/catcher">Evenements</RouterLink></li>
             <li><RouterLink to="/computed">Computing</RouterLink></li>
+            <li><RouterLink to="/dynamicForm">DynamicForm</RouterLink></li>
+            <li><RouterLink to="/watchList">WatchList</RouterLink></li>
             <li><RouterLink to="/recap">Recap</RouterLink></li>
         </ul>
     </div>

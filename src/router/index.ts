@@ -11,6 +11,8 @@ const router = createRouter({
         {path : '/plusMoins', name:'plusMoins', component : () => import('../views/PlusMoins.vue')},
         {path : '/catcher', name:'catcher', component : () => import('../views/Catcher.vue')},
         {path : '/computed', name:'computed', component : () => import('../views/Computed.vue')},
+        {path : '/dynamicForm', name:'dynamicForm', component : () => import('../views/DynamicForm.vue')},
+        {path : '/watchList', name:'watchList', component : () => import('../views/WatchList.vue')},
         {path : '/recap', name:'recap', component : () => import('../views/Recap.vue')}
     ],
 })
