@@ -8,7 +8,7 @@
         
         <section class="flex-1 w-full rounded-box bg-base-100 shadow-md p-5">
             <h3 class="text-2xl">Exercice actuel : Recap</h3>
-            <p>Lorem ipsum</p>
+            <p class="m-auto p-10 text-center">Lorem ipsum</p>
         </section>
         
     </main>

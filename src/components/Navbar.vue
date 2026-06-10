@@ -21,6 +21,7 @@ import { ref } from 'vue'
             <li><RouterLink to="/computed">Computing</RouterLink></li>
             <li><RouterLink to="/dynamicForm">DynamicForm</RouterLink></li>
             <li><RouterLink to="/watchList">WatchList</RouterLink></li>
+            <li><RouterLink to="/componentLC">Component life cycle</RouterLink></li>
             <li><RouterLink to="/recap">Recap</RouterLink></li>
         </ul>
     </div>

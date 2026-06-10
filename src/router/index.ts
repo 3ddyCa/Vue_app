@@ -13,7 +13,16 @@ const router = createRouter({
         {path : '/computed', name:'computed', component : () => import('../views/Computed.vue')},
         {path : '/dynamicForm', name:'dynamicForm', component : () => import('../views/DynamicForm.vue')},
         {path : '/watchList', name:'watchList', component : () => import('../views/WatchList.vue')},
-        {path : '/recap', name:'recap', component : () => import('../views/Recap.vue')}
+        {path : '/componentLC', name:'componentLC', component : () => import('../views/ComponentLC.vue')},
+        {path : '/recap', name:'recap', component : () => import('../views/Recap.vue')},
+         {
+            path: '/:pathMatch(.*)*',
+            name: 'not-found',
+            meta: {
+                description: 'Page non trouvée'
+            },
+            component: () => import('../views/not-found.vue')
+        },
     ],
 })
 
