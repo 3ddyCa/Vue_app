@@ -4,13 +4,43 @@
         title : {
             type : String,
             required : true,
-            default: 'base title',
+            default: 'Pas de données disponibles',
             validator: (value)=> value.length < 50
+        },
+        style : {
+            type : String,
+            required : true,
+            default: 'bg-orage-100',
+            validator: (value)=> value.length < 20
         },
         content : {
             type : String,
             required : true,
             default: 'Voici une super carte !',
+            validator: (value)=> value.length < 255
+        },
+        info1 : {
+            type : String,
+            required : true,
+            default: 'Pas d\'info à afficher',
+            validator: (value)=> value.length < 255
+        },
+        info2 : {
+            type : String,
+            required : false,
+            default: 'Pas d\'info à afficher',
+            validator: (value)=> value.length < 255
+        },
+        info3 : {
+            type : String,
+            required : false,
+            default: 'Pas d\'info à afficher',
+            validator: (value)=> value.length < 255
+        },
+        info4 : {
+            type : String,
+            required : false,
+            default: 'Pas d\'info à afficher',
             validator: (value)=> value.length < 255
         },
         img : {
@@ -25,12 +55,19 @@
 
 <template>
     
-    <section class="p-10 bg-base-100 grid rounded-box m-10 gap-2" >
-        <div class="gap-5 m-auto">
-            <h3>{{ title }}</h3>
+    <section class="p-10 bg-base-100 grid rounded-box m-10 gap-2 shadow-md" >
+        <div class="menu gap-5 m-auto" :class="style">
+            <strong>{{ title }}</strong>
+            <img :src="img" alt="Illustration de la météo">
             <p>{{ content }}</p>
-            <img :src="img" alt="Illustration">
+            <div class="grid m-auto">
+                <p>{{ info1 }}</p>
+                <p>{{ info2 }}</p>
+                <p>{{ info3 }}</p>
+                <p>{{ info4 }}</p>
+            </div>            
         </div>
     </section>
 
 </template>
+

@@ -1,5 +1,6 @@
 <script setup lang="ts">
     import { ref,computed,watch,onMounted } from 'vue';
+    import WidgetMeteo from '../components/WidgetMeteo.vue';
     const display = {
         pokemon : ref([]),
         meteo : ref([]),
@@ -27,8 +28,8 @@
 
     async function getData(url:string) {
         const urlList = {
-        pokemon : "https://pokeapi.co/api/v2/pokemon/?offset=40&limit=20",
-        meteo : 'https://prevision-meteo.ch/services/json/toulouse'
+            pokemon : "https://pokeapi.co/api/v2/pokemon/?offset=40&limit=20",
+            meteo : 'https://prevision-meteo.ch/services/json/toulouse'
         }
        let inputUrl;
         try {
@@ -45,7 +46,7 @@
             const result = await response.json();
             console.log(result);
             if(urlList[url] != undefined){
-                //
+                //POKEMON
                 if(url == "pokemon"){
                     if(result.results != undefined ){
                         result.results.forEach(item=>{
@@ -58,9 +59,9 @@
                         result[url].value = result.results;
                         return;
                     }
-                    //
+                    //METEO
                 }else{
-                    result[url].value = result.results;
+                    result[url].value = result;
                     return;
                 }
                 
@@ -77,7 +78,7 @@
         getData('pokemon').then();
         getData('meteo').then();
         
-        console.log(display)
+        console.log('display : ',display)
     })
 </script>
 
@@ -86,7 +87,7 @@
         <article>
             <section class="p-10 bg-base-100 grid rounded-box m-10 gap-2" v-if="display.pokemon != undefined" >
                 <h3 class="text-3xl">Resultat :</h3>
-                <div  class="m-auto p-3  text-center shadow-md rounded-box glass bg-orange-100" v-for="(element,index) in display.pokemon.value" :key="index">
+                <div  class="m-auto p-3  text-center shadow-md rounded-box glass bg-orange-100" v-for="(element,index) in display.pokemon" :key="index">
                     <img :src="element.img" alt="illustration de pokemon">
                     <h3>{{ element.name }}</h3>
                     
@@ -97,16 +98,15 @@
             </section>
         </article>
         <article>
-            <section class="p-10 bg-base-100 grid rounded-box m-10 gap-2" v-if="display.meteo != undefined" >
+            <section class="p-10 bg-base-100 grid rounded-box m-10 gap-2" v-if="display.meteo.city_info != undefined" >
                 <h3 class="text-3xl">Resultat :</h3>
                 <div  class="m-auto p-3  text-center shadow-md rounded-box glass bg-orange-100" v-for="(result,index) in display.meteo.value.results" :key="index">
-                    <img :src="result.url" alt="illustration de pokemon">
-                    <h3>{{ result.city_info.name }}</h3>
+                    <WidgetMeteo title="result" />
                     
                 </div>
             </section>
             <section v-else>
-                <p>pas de resultat</p>
+                <WidgetMeteo  />
             </section>
         </article>
     </main>

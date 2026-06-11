@@ -14,6 +14,7 @@ const router = createRouter({
         {path : '/dynamicForm', name:'dynamicForm', component : () => import('../views/DynamicForm.vue')},
         {path : '/watchList', name:'watchList', component : () => import('../views/WatchList.vue')},
         {path : '/componentLC', name:'componentLC', component : () => import('../views/ComponentLC.vue')},
+        {path : '/propsFriends', name:'propsFirends', component : () => import('../views/PropsFriends.vue')},
         {path : '/recap', name:'recap', component : () => import('../views/Recap.vue')},
          {
             path: '/:pathMatch(.*)*',
