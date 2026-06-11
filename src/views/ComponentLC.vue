@@ -167,6 +167,7 @@
                 <p>pas de resultat</p>
             </section>
         </article>
+        
         <article>
             <section class="p-10 bg-base-100 grid rounded-box m-10 gap-2" v-if="display.meteo != undefined" >
                 <h3 class="text-3xl">Resultat :</h3>

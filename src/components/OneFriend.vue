@@ -1,5 +1,5 @@
 <template>
-    <div class="card w-full max-w-lg shadow-xl bg-blue-100 w-64 h-fit" >
+    <div class="card glass w-full max-w-lg shadow-xl bg-blue-100 w-fit  h-fit" >
    
         <div class="card-body">
             <div class="flex gap-2">
@@ -8,11 +8,11 @@
                 <span v-else class="btn btn-base">Standard</span>
             </div>
             
-            <ul class="flex-1 p-3 m-auto gap-2">
-                <li class="opacity-80 rounded-box flex p-2 gap-3"><img class="bg-base-100 btn btn-primary" src="" alt="ID"><p class="text-base-content m-auto">{{ login }}</p></li>
-                <li class="opacity-80 rounded-box flex p-2 gap-3"><img class="bg-base-100 btn btn-secondary" src="" alt="TEL"><p class="text-base-content m-auto">{{ tel }}</p></li>
-                <li class="opacity-80 rounded-box flex p-2 gap-3"><img class="bg-base-100 btn btn-accent"  src="" alt="@"><p class="text-base-content m-auto">{{ mail }}</p></li>
-                <li class="opacity-80 rounded-box flex p-2 gap-3"><button class="btn btn-primary" @click="swapState">Modifier la carte</button></li>
+            <ul class="flex-1 p-3 m-auto w-fit gap-2">
+                <li v-if="isDetail" class="opacity-80 rounded-box flex p-2 gap-3"><img class="bg-base-100 btn btn-primary" src="" alt="ID"><p class="text-base-content m-auto">{{ login }}</p></li>
+                <li v-if="isDetail"  class="opacity-80 rounded-box flex p-2 gap-3"><img class="bg-base-100 btn btn-secondary" src="" alt="TEL"><p class="text-base-content m-auto">{{ tel }}</p></li>
+                <li v-if="isDetail"  class="opacity-80 rounded-box flex p-2 gap-3"><img class="bg-base-100 btn btn-accent"  src="" alt="@"><p class="text-base-content m-auto">{{ mail }}</p></li>
+                <li   class="opacity-80 rounded-box flex p-2 gap-3"><button class="btn btn-accent" @click="swapState">Modifier</button><button class="btn btn-primary" @click="deleteCard">Supprimer</button><button class="btn btn-secondary" @click="swapDetail">Voir</button></li>
             </ul>
         </div>
 
@@ -58,16 +58,27 @@ const props = defineProps({
 });
 
 let statusTemp = ref(props.status);
-/*const emits = defineEmits(
-    isGold: {
-        type: Boolean
-    }
-)*/
+let isDetail = ref(false);
+
+const emit = defineEmits(
+    ['mon-event-premium-update','mon-event-premium-delete','mon-event-premium-add']
+)
 
 const swapState = computed(()=>{
     statusTemp.value = !statusTemp.value;
-    console.log(statusTemp);
+    emit('mon-event-premium-update',statusTemp, props.login);
+    console.log('Child event log : ',statusTemp.value);
 })
+const swapDetail = computed(()=>{
+    isDetail.value = !isDetail.value;
+})
+
+const deleteCard = computed(()=>{
+    emit('mon-event-premium-delete', props.login);
+})
+
+
+
 
 </script>
 
