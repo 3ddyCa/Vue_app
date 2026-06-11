@@ -55,8 +55,8 @@
 
 <template>
     
-    <section class="p-10 bg-base-100 grid rounded-box m-10 gap-2 shadow-md" >
-        <div class="menu gap-5 m-auto" :class="style">
+    <section class="p-10 bg-orange-100 grid rounded-box m-10 w-64 h-fit gap-2 shadow-md" >
+        <div class="menu gap-5 m-auto" >
             <strong>{{ title }}</strong>
             <img :src="img" alt="Illustration de la météo">
             <p>{{ content }}</p>

@@ -55,8 +55,13 @@ const lesAmis = ref([
 </script>
 <template>
     <main>
-        <section class="bg-base-100 p-4 w-75">
+        <section class="bg-base-100 p-4 w-fit">
+            <p class="text-xl">Contenu du tableau</p>
+            <div class="bg-blue-100 p-5 flex w-fit gap-1" >
+                <div class="bg-blue-100 p-1 w-45" v-for="(element,index) in lesAmis" :key="index">{{ element }}</div>
+            </div>
             <div class=" bg-base-100 m-5">
+                <p class="text-xl">Affichage de widgets dynamiques via props</p>
                 <ul class="flex bg-base-100 rounded-box h-fit p-2 shadow-sm gap-5" >
                     <li v-for="(element,index) in lesAmis" :key="index">
                         <OneFriend  :login="element.id" :nom="element.name" :tel="element.phone" :mail="element.email" :status="element.premium"/>
